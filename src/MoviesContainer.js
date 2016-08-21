@@ -3,28 +3,26 @@ import "./Movie.css";
 
 var MoviesContainer = React.createClass({
 
-  getInitialState: function() {
-    return {
-      movies: [
-        {
-          id: 1,
-          name: "Movie 1",
-          img: "http://trailers.apple.com/trailers/magnolia/loandbeholdreveriesoftheconnectedworld/images/poster.jpg"
-        },
-        {
-          id: 2,
-          name: "Movie 2",
-          img: "http://trailers.apple.com/trailers/magnolia/loandbeholdreveriesoftheconnectedworld/images/poster.jpg"
-        },
-        {
-          id: 3,
-          name: "Movie 3",
-          img: "http://trailers.apple.com/trailers/magnolia/loandbeholdreveriesoftheconnectedworld/images/poster.jpg"
-        }
-      ]
-    }
+  componentDidMount: function() {
+    fetch("http://api.themoviedb.org/3/movie/popular?api_key=925a4602f6b05af1f8e2391a9a8e7c51")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(movies){
+        console.log(movies);
+        this.setState({movies: movies.results});
+      }.bind(this));
   },
 
+  componentWillUnmount: function() {
+    console.log("unmounted");
+  },
+
+  getInitialState: function() {
+    return {
+      movies: []
+    };
+  },
   render: function() {
     var movies = this.state.movies;
     return (
@@ -32,7 +30,7 @@ var MoviesContainer = React.createClass({
         <MovieList movies={movies} />
       </div>
     );
-}
+  }
 });
 
 var MovieList=  React.createClass({
@@ -53,8 +51,8 @@ var MovieList=  React.createClass({
 var Movie = function(props) {
   return (
     <div className="movie">
-      <img src={props.img} alt={props.name}/>
-      <h3>{props.name}</h3>
+      <img src={"http://image.tmdb.org/t/p/w185/" + props.poster_path} alt={props.name}/>
+      <h3>{props.title}</h3>
     </div>
   );
 };
