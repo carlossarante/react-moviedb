@@ -13,3 +13,8 @@ body {
 h3 {
   font-size: 11px;
 }
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}

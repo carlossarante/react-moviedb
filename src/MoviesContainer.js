@@ -1,21 +1,23 @@
 import React from 'react';
 import "./Movie.css";
 
+
+function constructMovieSearchByTitle(movieTitle) {
+  return `//api.themoviedb.org/3/search/movie?api_key=925a4602f6b05af1f8e2391a9a8e7c51&query=${movieTitle}`;
+}
+
+function constructPopularMovies() {
+  return `//api.themoviedb.org/3/movie/popular?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
+}
+
+
 var MoviesContainer = React.createClass({
-
   componentDidMount: function() {
-    fetch("http://api.themoviedb.org/3/movie/popular?api_key=925a4602f6b05af1f8e2391a9a8e7c51")
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(movies){
-        console.log(movies);
-        this.setState({movies: movies.results});
-      }.bind(this));
-  },
-
-  componentWillUnmount: function() {
-    console.log("unmounted");
+    fetch(constructPopularMovies())
+    .then(response => response.json())
+    .then(function(movies){
+      this.setState({movies: movies.results});
+    }.bind(this));
   },
 
   getInitialState: function() {
@@ -23,10 +25,20 @@ var MoviesContainer = React.createClass({
       movies: []
     };
   },
+  searchMovie: function(movieToSearch) {
+    if(movieToSearch.trim().length > 0) {
+      fetch(constructMovieSearchByTitle(movieToSearch),{'Access-Control-Allow-Origin': 'true'})
+      .then(response => response.json())
+      .then(function(movies){
+        this.setState({movies: movies.results})
+      }.bind(this));
+    }
+  },
   render: function() {
     var movies = this.state.movies;
     return (
-      <div>
+      <div className="container">
+        <NavSearch handleOnChange={this.searchMovie} />
         <MovieList movies={movies} />
       </div>
     );
@@ -34,27 +46,40 @@ var MoviesContainer = React.createClass({
 });
 
 var MovieList=  React.createClass({
-
   render: function() {
     var movies = [];
     this.props.movies.forEach(function(movie){
       movies.push(<Movie key={movie.id} {...movie} />);
-     });
-  return (
-    <div className="movie__list">
-      {movies}
-     </div>
+    });
+    return (
+      <div className="movie__list">
+        {movies}
+       </div>
     );
   }
 });
 
-var Movie = function(props) {
-  return (
-    <div className="movie">
-      <img src={"http://image.tmdb.org/t/p/w185/" + props.poster_path} alt={props.name}/>
-      <h3>{props.title}</h3>
-    </div>
-  );
-};
+var Movie = React.createClass({
+  render: function() {
+    return (
+      <div className="movie">
+        <img src={"http://image.tmdb.org/t/p/w185/" + this.props.poster_path} alt={this.props.name}/>
+        <h3>{this.props.title}</h3>
+      </div>
+    );
+  }
+});
+
+var NavSearch = React.createClass({
+  render: function() {
+    return (
+        <input placeholder="Search movie..."
+              type="text"
+              ref="textSearch"
+            onChange={() => this.props.handleOnChange(this.refs.textSearch.value)}
+            className="searchBar"/>
+    );
+  }
+});
 
 export default MoviesContainer;
