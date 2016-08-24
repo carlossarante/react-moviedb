@@ -1,5 +1,7 @@
 import React from 'react';
-import "./Movie.css";
+import MovieList from '../components/MovieList';
+import Movie from '../components/Movie';
+import NavSearch from '../components/NavSearch';
 
 
 function constructMovieSearchByTitle(movieTitle) {
@@ -9,7 +11,6 @@ function constructMovieSearchByTitle(movieTitle) {
 function constructPopularMovies() {
   return `//api.themoviedb.org/3/movie/popular?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
 }
-
 
 var MoviesContainer = React.createClass({
   componentDidMount: function() {
@@ -41,43 +42,6 @@ var MoviesContainer = React.createClass({
         <NavSearch handleOnChange={this.searchMovie} />
         <MovieList movies={movies} />
       </div>
-    );
-  }
-});
-
-var MovieList=  React.createClass({
-  render: function() {
-    var movies = [];
-    this.props.movies.forEach(function(movie){
-      movies.push(<Movie key={movie.id} {...movie} />);
-    });
-    return (
-      <div className="movie__list">
-        {movies}
-       </div>
-    );
-  }
-});
-
-var Movie = React.createClass({
-  render: function() {
-    return (
-      <div className="movie">
-        <img src={"http://image.tmdb.org/t/p/w185/" + this.props.poster_path} alt={this.props.name}/>
-        <h3>{this.props.title}</h3>
-      </div>
-    );
-  }
-});
-
-var NavSearch = React.createClass({
-  render: function() {
-    return (
-        <input placeholder="Search movie..."
-              type="text"
-              ref="textSearch"
-            onChange={() => this.props.handleOnChange(this.refs.textSearch.value)}
-            className="searchBar"/>
     );
   }
 });

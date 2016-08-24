@@ -18,3 +18,5 @@ h3 {
   width: 960px;
   margin: 0 auto;
 }
+@import "App.css";
+@import "Movie.css";
