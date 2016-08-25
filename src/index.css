@@ -19,4 +19,5 @@ h3 {
   margin: 0 auto;
 }
 @import "App.css";
+@import "grid.css";
 @import "Movie.css";
