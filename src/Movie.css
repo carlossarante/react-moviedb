@@ -1,3 +1,9 @@
+.searchBar{
+  padding:10px;
+  width: 250px;
+  margin-bottom: 5px;
+}
+
 .movie__list {
   display: flex;
   flex-flow: row wrap;
@@ -12,9 +18,6 @@
   text-align: center;
   overflow: hidden;
 }
-
-.searchBar{
-  padding:10px;
-  width: 250px;
-  margin-bottom: 5px;
+.customer-review p {
+  white-space: pre-wrap;
 }

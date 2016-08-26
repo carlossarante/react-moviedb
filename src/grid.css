@@ -32,3 +32,11 @@
 .col-7-10 {
   width: 70%;
 }
+
+.col-offset-1-5{
+  margin-left: 20%;
+}
+
+.col-offset-3-10 {
+  margin-left: 30%;
+}
