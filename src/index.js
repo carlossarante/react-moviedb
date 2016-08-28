@@ -8,7 +8,7 @@ import MoviesContainer from './containers/MoviesContainer';
 import MovieContainer from './containers/MovieContainer';
 import Movie from './Movie';
 import MovieList from './components/MovieList';
-import './index.css';
+import './styles/main.css';
 
 ReactDOM.render(
   <Router history={browserHistory}>

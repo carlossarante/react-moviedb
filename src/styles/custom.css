@@ -26,10 +26,11 @@ h3 {
   font-size: 11px;
 }
 
+.full-container {
+  padding: 10px;
+}
+
 .container {
   width: 960px;
   margin: 0 auto;
 }
-@import "App.css";
-@import "grid.css";
-@import "Movie.css";

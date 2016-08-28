@@ -36,7 +36,7 @@ var MoviesContainer = React.createClass({
   render: function() {
     var movies = this.state.movies;
     return (
-      <div className="container">
+      <div className="full-container">
         <NavSearch handleOnChange={this.searchMovie} />
         <MovieList movies={movies} />
       </div>
