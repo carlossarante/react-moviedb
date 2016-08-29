@@ -9,21 +9,30 @@ function constructMovieReviews(id) {
   return `//api.themoviedb.org/3/movie/${id}/reviews?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
 }
 
+
+function constructMovieCasts(id) {
+  return `//api.themoviedb.org/3/movie/${id}/credits?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
+}
+
 var MovieContainer = React.createClass({
   componentDidMount: function() {
     var id = this.props.params.id;
     Promise.all([
         fetch(constructFindMovie(id)),
-        fetch(constructMovieReviews(id))
+        fetch(constructMovieReviews(id)),
+        fetch(constructMovieCasts(id))
       ])
       .then(function(response){
           var p1 = Promise.resolve(response[0].json());
           var p2 = Promise.resolve(response[1].json());
-          return Promise.all([p1, p2]);
+          var p3 = Promise.resolve(response[2].json());
+          return Promise.all([p1, p2, p3]);
       }).then(function(data){
+        console.log(data[2]);
         this.setState({
           movie: data[0],
-          reviews: data[1].results
+          reviews: data[1].results,
+          casts: data[2].cast
         });
       }.bind(this));
   },
@@ -38,7 +47,8 @@ var MovieContainer = React.createClass({
   render: function() {
     return (
       <Movie movie={this.state.movie}
-            reviews={this.state.reviews} />
+             reviews={this.state.reviews}
+             casts={this.state.casts}/>
     )
   }
 });

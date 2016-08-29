@@ -22,6 +22,18 @@
   text-align: center;
   overflow: hidden;
 }
+
 .customer-review p {
   white-space: pre-wrap;
+}
+
+.cast-list td {
+  vertical-align: baseline;
+  padding: 4px 6px 6px 6px;
+}
+
+.cast-list img {
+  vertical-align: middle;
+  width: 32px;
+  height: 44px;
 }
