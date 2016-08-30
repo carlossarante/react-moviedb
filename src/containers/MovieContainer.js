@@ -28,7 +28,6 @@ var MovieContainer = React.createClass({
           var p3 = Promise.resolve(response[2].json());
           return Promise.all([p1, p2, p3]);
       }).then(function(data){
-        console.log(data[2]);
         this.setState({
           movie: data[0],
           reviews: data[1].results,
@@ -46,7 +45,7 @@ var MovieContainer = React.createClass({
   },
   render: function() {
     return (
-      <Movie movie={this.state.movie}
+      <Movie {...this.state.movie}
              reviews={this.state.reviews}
              casts={this.state.casts}/>
     )
