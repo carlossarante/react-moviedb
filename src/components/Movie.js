@@ -28,7 +28,11 @@ var Movie = React.createClass({
         <div className="grid">
           <div className="col-3-10">
             <h2>{this.props.title}</h2>
+            
             <img src={`http://image.tmdb.org/t/p/w185/${this.props.poster_path}`} alt={this.props.name}/>
+            <div className="movie-metadata">
+              <span className="movie-vote-average">{this.props.vote_average} <span>/ 10</span></span>
+            </div>
           </div>
           <div className="movie-description col-3-10">
             <h2>About the movie</h2>

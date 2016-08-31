@@ -23,6 +23,24 @@
   overflow: hidden;
 }
 
+.movie-metadata {
+  width: 185px;
+}
+
+.movie-vote-average {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  display: block;
+  border: 2px solid #E9FAE3;
+}
+
+.movie-vote-average span {
+  font-size: 10px;
+  color: #dedede;
+}
+
 .customer-review p {
   white-space: pre-wrap;
 }
