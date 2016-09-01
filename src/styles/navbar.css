@@ -1,0 +1,17 @@
+nav ul li {
+  font-weight: bold;
+  padding: 10px;
+}
+
+nav ul li a {
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+}
+
+.active-link {
+  border-bottom: 3px solid #10A5E8;
+}
