@@ -10,6 +10,9 @@ var NavBar = React.createClass({
           <li>
             <Link to='/' activeClassName="active-link">Movies</Link>
           </li>
+          <li>
+            <Link to='/tv-series' activeClassName="active-link">Movies</Link>
+          </li>
         </ul>
       </nav>
     );
