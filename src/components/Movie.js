@@ -7,12 +7,30 @@ var Movie = React.createClass({
     title: React.PropTypes.string,
     overview: React.PropTypes.string,
     poster_path: React.PropTypes.string,
+    backdrop: React.PropTypes.object,
     reviews: React.PropTypes.arrayOf(React.PropTypes.shape),
     casts: React.PropTypes.arrayOf(React.PropTypes.shape)
   },
 
   hasReviews: function() {
     return this.props.reviews.length > 0;
+  },
+
+  hasBackDrop: function() {
+
+    console.log(this.props.backdrop.file_path);
+    return this.props.backdrop.file_path !== undefined;
+  },
+
+  renderBackDrop: function() {
+    if(this.hasBackDrop()) {
+      return (
+        <div className="movie-backdrop">
+          <img src={`//image.tmdb.org/t/p/w1280/${this.props.backdrop.file_path}`}  alt={this.props.title}/>
+        </div>
+      )
+    }
+    return null;
   },
 
   renderReviewList: function() {
@@ -25,11 +43,11 @@ var Movie = React.createClass({
   render: function() {
     return (
       <div className="container">
+        {this.renderBackDrop()}
         <div className="grid">
           <div className="col-3-10">
             <h2>{this.props.title}</h2>
-            
-            <img src={`http://image.tmdb.org/t/p/w185/${this.props.poster_path}`} alt={this.props.name}/>
+            <img src={`http://image.tmdb.org/t/p/w185/${this.props.poster_path}`} alt={this.props.title}/>
             <div className="movie-metadata">
               <span className="movie-vote-average">{this.props.vote_average} <span>/ 10</span></span>
             </div>
