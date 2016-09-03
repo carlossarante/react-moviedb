@@ -11,7 +11,7 @@ var NavBar = React.createClass({
             <Link to='/' activeClassName="active-link">Movies</Link>
           </li>
           <li>
-            <Link to='/tv-series' activeClassName="active-link">Movies</Link>
+            <Link to='/tv-series' activeClassName="active-link">TV Series</Link>
           </li>
         </ul>
       </nav>

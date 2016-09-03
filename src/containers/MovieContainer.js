@@ -1,22 +1,6 @@
 import React from 'react';
 import Movie from '../components/Movie';
-
-function constructFindMovie(id) {
-  return `//api.themoviedb.org/3/movie/${id}?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
-}
-
-function constructMovieReviews(id) {
-  return `//api.themoviedb.org/3/movie/${id}/reviews?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
-}
-
-
-function constructMovieCasts(id) {
-  return `//api.themoviedb.org/3/movie/${id}/credits?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
-}
-
-function constructMovieImages(id) {
-  return `//api.themoviedb.org/3/movie/${id}/images?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
-}
+import { constructFindMovie, constructMovieReviews, constructMovieCasts, constructMovieImages } from '../utils/MovieUtils'
 
 var MovieContainer = React.createClass({
   componentDidMount: function() {

@@ -1,14 +1,7 @@
 import React from 'react';
 import MovieList from '../components/MovieList';
 import NavSearch from '../components/NavSearch';
-
-function constructMovieSearchByTitle(movieTitle) {
-  return `//api.themoviedb.org/3/search/movie?api_key=925a4602f6b05af1f8e2391a9a8e7c51&query=${movieTitle}`;
-}
-
-function constructPopularMovies() {
-  return `//api.themoviedb.org/3/movie/popular?api_key=925a4602f6b05af1f8e2391a9a8e7c51`;
-}
+import { constructMovieSearchByTitle, constructPopularMovies } from '../utils/MovieUtils'
 
 var MoviesContainer = React.createClass({
   componentDidMount: function() {
