@@ -30,8 +30,7 @@ var MovieContainer = React.createClass({
   getInitialState: function() {
     return {
       movie: {},
-      reviews: [
-      ],
+      reviews: [],
       backdrop: {}
     }
   },

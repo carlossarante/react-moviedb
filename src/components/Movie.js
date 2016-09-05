@@ -17,8 +17,6 @@ var Movie = React.createClass({
   },
 
   hasBackDrop: function() {
-
-    console.log(this.props.backdrop.file_path);
     return this.props.backdrop.file_path !== undefined;
   },
 
@@ -94,16 +92,20 @@ var CastList =  React.createClass({
     }
   },
 
-  render: function() {
+  renderCasts: function () {
     var casts = this.props.casts.slice(0, this.props.limit_to_show).map((cast) => {
       return (<Cast key={cast.id} {...cast} />)
     });
+    return casts;
+  },
+
+  render: function() {
     return (
       <div className="col-3-10">
         <h2>Casts</h2>
         <table className="cast-list">
           <tbody>
-            {casts}
+            {this.renderCasts()}
             {this.renderLinkMoreCasts()}
           </tbody>
         </table>
