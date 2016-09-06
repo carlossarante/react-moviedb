@@ -1,6 +1,11 @@
 import React from 'react';
 import Movie from '../components/Movie';
-import { constructFindMovie, constructMovieReviews, constructMovieCasts, constructMovieImages } from '../utils/MovieUtils'
+import { constructFindMovie,
+        constructMovieReviews,
+        constructMovieCasts,
+        constructMovieImages,
+        constructMovieVideos
+      } from '../utils/MovieUtils'
 
 var MovieContainer = React.createClass({
   componentDidMount: function() {
@@ -9,20 +14,26 @@ var MovieContainer = React.createClass({
         fetch(constructFindMovie(id)),
         fetch(constructMovieReviews(id)),
         fetch(constructMovieCasts(id)),
-        fetch(constructMovieImages(id))
+        fetch(constructMovieImages(id)),
+        fetch(constructMovieVideos(id))
       ])
       .then(function(response){
-          var p1 = Promise.resolve(response[0].json());
-          var p2 = Promise.resolve(response[1].json());
-          var p3 = Promise.resolve(response[2].json());
-          var p4 = Promise.resolve(response[3].json());
-          return Promise.all([p1, p2, p3, p4]);
+        var promises = [
+          Promise.resolve(response[0].json()),
+          Promise.resolve(response[1].json()),
+          Promise.resolve(response[2].json()),
+          Promise.resolve(response[3].json()),
+          Promise.resolve(response[4].json())
+        ]
+        return Promise.all(promises);
       }).then(function(data){
+        console.log(data[4])
         this.setState({
           movie: data[0],
           reviews: data[1].results,
           casts: data[2].cast,
-          backdrop: data[3]["backdrops"][0]
+          backdrop: data[3]["backdrops"][0],
+          videos: data[4].results
         });
       }.bind(this));
   },
@@ -31,7 +42,8 @@ var MovieContainer = React.createClass({
     return {
       movie: {},
       reviews: [],
-      backdrop: {}
+      backdrop: {},
+      videos: []
     }
   },
   render: function() {
@@ -39,7 +51,8 @@ var MovieContainer = React.createClass({
       <Movie {...this.state.movie}
              backdrop={this.state.backdrop}
              reviews={this.state.reviews}
-             casts={this.state.casts}/>
+             casts={this.state.casts}
+             videos={this.state.videos}/>
     )
   }
 });

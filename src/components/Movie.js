@@ -38,10 +38,36 @@ var Movie = React.createClass({
     return (<h2>this movie doesnt have review yet</h2>);
   },
 
+  hasTrailers: function() {
+    return this.props.videos.length > 0;
+  },
+
+  renderTrailers: function() {
+    if(this.hasTrailers()) {
+      var trailers = this.props.videos.map(function(trailer) {
+        return (
+          <li key={trailer.id} className="trailer">
+            <iframe width="160" height="90" src={`https://www.youtube.com/embed/${trailer.key}`} frameBorder="0" allowFullScreen>
+          </iframe>
+          </li>
+        )
+      });
+      return (
+        <div id="trailers">
+          <ul className="trailers">
+            {trailers}
+          </ul>
+        </div>
+      )
+    }
+ 
+  },
+
   render: function() {
     return (
       <div className="container">
         {this.renderBackDrop()}
+        {this.renderTrailers()}
         <div className="grid">
           <div className="col-3-10">
             <h2>{this.props.title}</h2>
