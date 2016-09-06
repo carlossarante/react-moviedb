@@ -54,7 +54,9 @@ var Movie = React.createClass({
       });
       return (
         <div id="trailers">
-          <ul className="trailers">
+          <div className="fade-left"></div>
+          <div className="fade-right"></div>
+          <ul className="content">
             {trailers}
           </ul>
         </div>

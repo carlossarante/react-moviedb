@@ -65,10 +65,38 @@
   height: 44px;
 }
 
-.trailers {
-  display: flex;
+#trailers {
+  position: relative;
 }
 
-.trailers .trailer {
-  justify-content: space-between;
+#trailers .fade-left, .fade-right {
+    width: 100px;
+    display: block;
+    height: 115px;
+    top: 0;
 }
+
+#trailers .fade-left {
+    background-color: #211f20;
+    background-image: -webkit-linear-gradient(right, #211f20, #000);
+    background-image: linear-gradient(to left,#211f20, #000);
+    position: absolute;
+    left: -83px;
+}
+
+#trailers .fade-right {
+    background-color: #211f20;
+    background-image: -webkit-linear-gradient(left, #211f20, #000);
+    background-image: linear-gradient(to right,#211f20, #000);
+    position: absolute;
+    right: -83px;
+}
+
+#trailers .content {
+  display: flex;
+  justify-content: space-around;
+  background-color: #211f20;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
