@@ -44,7 +44,8 @@ var Movie = React.createClass({
 
   renderTrailers: function() {
     if(this.hasTrailers()) {
-      var trailers = this.props.videos.map(function(trailer) {
+      var videos = this.props.videos.slice(0, 5);
+      var trailers = videos.map(function(trailer) {
         return (
           <li key={trailer.id} className="trailer">
             <iframe width="160" height="90" src={`https://www.youtube.com/embed/${trailer.key}`} frameBorder="0" allowFullScreen>
@@ -97,6 +98,7 @@ var CastList =  React.createClass({
     casts: React.PropTypes.array,
     limit_to_show: React.PropTypes.number
   },
+  
   getDefaultProps: function() {
     return {
       casts: [],
