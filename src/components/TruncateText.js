@@ -1,7 +1,7 @@
 import React from 'react';
 
 var style = {
-    color: '#61dafb',
+    color: '#08c',
     cursor: 'pointer'
 }
 

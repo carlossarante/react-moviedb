@@ -9,12 +9,12 @@ var Review = React.createClass({
   
   render: function() {
     return (
-      <div>
         <div className="customer-review" role="article">
-          <h5>{this.props.author}</h5>
-          <TruncateText text={this.props.content} />
+          <div className="review-meta">
+             <span>by {this.props.author}</span>
+          </div>
+          <TruncateText text={this.props.content} maxLength="300"/>
         </div>
-      </div>
     );
   }
 });
