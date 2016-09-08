@@ -7,9 +7,7 @@ var MoviesContainer = React.createClass({
   componentDidMount: function() {
     fetch(constructPopularMovies())
     .then(response => response.json())
-    .then(function(movies){
-      this.setState({movies: movies.results});
-    }.bind(this));
+    .then((movies) => this.setState({movies: movies.results}));
   },
 
   getInitialState: function() {
@@ -17,15 +15,15 @@ var MoviesContainer = React.createClass({
       movies: []
     };
   },
+  
   searchMovie: function(movieToSearch) {
     if(movieToSearch.trim().length > 0) {
       fetch(constructMovieSearchByTitle(movieToSearch),{'Access-Control-Allow-Origin': 'true'})
       .then(response => response.json())
-      .then(function(movies){
-        this.setState({movies: movies.results})
-      }.bind(this));
+      .then((movies) => this.setState({movies: movies.results}));
     }
   },
+  
   render: function() {
     var movies = this.state.movies;
     return (
