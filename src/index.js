@@ -8,7 +8,7 @@ import MoviesContainer from './containers/MoviesContainer';
 import MovieContainer from './containers/MovieContainer';
 import TVSerieContainer from './containers/TVSerieContainer';
 import Movie from './Movie';
-import MovieList from './components/MovieList';
+import MediaList from './components/MediaList';
 import './styles/main.css';
 
 ReactDOM.render(

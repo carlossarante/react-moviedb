@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieList from '../components/MovieList';
+import MediaList from '../components/MediaList';
 import NavSearch from '../components/NavSearch';
 import { constructMovieSearchByTitle, constructPopularMovies } from '../utils/MovieUtils'
 
@@ -29,7 +29,7 @@ var MoviesContainer = React.createClass({
     return (
       <div className="full-container">
         <NavSearch handleOnChange={this.searchMovie} />
-        <MovieList movies={movies} />
+        <MediaList medias={movies} type="movie" />
       </div>
     );
   }
