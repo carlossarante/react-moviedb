@@ -6,7 +6,7 @@ var Review = React.createClass({
     author: React.PropTypes.string,
     content: React.PropTypes.string
   },
-  
+
   render: function() {
     return (
         <div className="customer-review" role="article">

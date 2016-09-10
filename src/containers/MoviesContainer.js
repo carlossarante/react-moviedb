@@ -15,7 +15,7 @@ var MoviesContainer = React.createClass({
       movies: []
     };
   },
-  
+
   searchMovie: function(movieToSearch) {
     if(movieToSearch.trim().length > 0) {
       fetch(constructMovieSearchByTitle(movieToSearch),{'Access-Control-Allow-Origin': 'true'})
@@ -23,7 +23,7 @@ var MoviesContainer = React.createClass({
       .then((movies) => this.setState({movies: movies.results}));
     }
   },
-  
+
   render: function() {
     var movies = this.state.movies;
     return (
