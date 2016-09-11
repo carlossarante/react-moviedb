@@ -16,6 +16,7 @@ ReactDOM.render(
     <Route path="/" component={App}>
       <IndexRoute component={MoviesContainer} />
       <Route path="/movie/:id" component={MovieContainer} />
+      <Route path="/serie/:id" component={MovieContainer} />
       <Route path="/tv-series" component={TVSerieContainer} />
     </Route>
   </Router>,
