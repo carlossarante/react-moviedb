@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
 
 var NavBar = React.createClass({
 
   render: function() {
     return(
       <nav>
-        <ul>
+        <ul className="main-menu">
           <li>
-            <Link to='/' activeClassName="active-link">Movies</Link>
+            <IndexLink to='/' activeClassName="active-link">Movies</IndexLink>
           </li>
           <li>
             <Link to='/tv-series' activeClassName="active-link">TV Series</Link>

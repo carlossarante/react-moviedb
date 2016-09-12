@@ -34,3 +34,13 @@ h3 {
   width: 960px;
   margin: 0 auto;
 }
+
+nav .main-menu:after{
+  content: '';
+  clear: left;
+  display: block;
+}
+
+nav .main-menu li {
+  float: left;
+}

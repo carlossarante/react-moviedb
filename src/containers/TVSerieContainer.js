@@ -22,7 +22,7 @@ var TVSerieContainer = React.createClass({
     return (
       <div className="full-container">
         <NavSearch handleOnChange={this.searchMovie} />
-        <MediaList medias={series} type="serie" />
+        <MediaList medias={series} type="tv-series" />
       </div>
     );
   }
