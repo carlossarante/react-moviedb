@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 
 export default React.createClass({
   propTypes: {
-    type: React.PropTypes.string  
+    type: React.PropTypes.string
   },
-  
+
   render: function() {
     return (
       <div className="media-item">
