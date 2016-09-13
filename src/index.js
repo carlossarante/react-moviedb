@@ -7,8 +7,7 @@ import App from './containers/App';
 import MoviesContainer from './containers/MoviesContainer';
 import MovieContainer from './containers/MovieContainer';
 import TVSerieContainer from './containers/TVSerieContainer';
-import Movie from './Movie';
-import MediaList from './components/MediaList';
+import TVContainer from './containers/TVContainer';
 import './styles/main.css';
 
 ReactDOM.render(
@@ -16,7 +15,7 @@ ReactDOM.render(
     <Route path="/" component={App}>
       <IndexRoute component={MoviesContainer} />
       <Route path="/movie/:id" component={MovieContainer} />
-      <Route path="/tv-series/:id" component={MovieContainer} />
+      <Route path="/tv/:id" component={TVContainer} />
       <Route path="/tv-series" component={TVSerieContainer} >
       </Route>
     </Route>

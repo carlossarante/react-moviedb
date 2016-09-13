@@ -1,39 +1,34 @@
 import React from 'react';
 import Media from '../components/Media';
-import { constructFindMovie,
-        constructMovieReviews,
-        constructMovieCasts,
-        constructMovieImages,
-        constructMovieVideos
-      } from '../utils/MovieUtils'
+import { constructFindTv,
+        constructTvCasts,
+        constructTvImages,
+        constructTvVideos
+      } from '../utils/TvUtils';
 
-var MovieContainer = React.createClass({
+var TVContainer = React.createClass({
   componentDidMount: function() {
     var id = this.props.params.id;
     Promise.all([
-        fetch(constructFindMovie(id)),
-        fetch(constructMovieReviews(id)),
-        fetch(constructMovieCasts(id)),
-        fetch(constructMovieImages(id)),
-        fetch(constructMovieVideos(id))
+        fetch(constructFindTv(id)),
+        fetch(constructTvCasts(id)),
+        fetch(constructTvImages(id)),
+        fetch(constructTvVideos(id))
       ])
       .then(function(response){
         var promises = [
           Promise.resolve(response[0].json()),
           Promise.resolve(response[1].json()),
           Promise.resolve(response[2].json()),
-          Promise.resolve(response[3].json()),
-          Promise.resolve(response[4].json())
+          Promise.resolve(response[3].json())
         ]
         return Promise.all(promises);
       }).then(function(data){
-        console.log(data[4])
         this.setState({
           movie: data[0],
-          reviews: data[1].results,
-          casts: data[2].cast,
-          backdrop: data[3]["backdrops"][0],
-          videos: data[4].results
+          casts: data[1].cast,
+          backdrop: data[2]["backdrops"][0],
+          videos: data[3].results
         });
       }.bind(this));
   },
@@ -57,4 +52,4 @@ var MovieContainer = React.createClass({
   }
 });
 
-export default MovieContainer;
+export default TVContainer;

@@ -13,7 +13,7 @@ var Review = React.createClass({
           <div className="review-meta">
              <span>by {this.props.author}</span>
           </div>
-          <TruncateText text={this.props.content} maxLength="300"/>
+          <TruncateText text={this.props.content} maxLength={300}/>
         </div>
     );
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReviewList from './ReviewList';
-import Review from './Review';
 
 var Movie = React.createClass({
   propTypes: {
@@ -98,7 +97,7 @@ var CastList =  React.createClass({
     casts: React.PropTypes.array,
     limit_to_show: React.PropTypes.number
   },
-  
+
   getDefaultProps: function() {
     return {
       casts: [],
