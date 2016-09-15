@@ -1,6 +1,7 @@
 @import "reset.css";
 @import "base.css";
-@import "custom.css";
+@import "layout.css";
 @import "grid.css";
-@import "movie.css";
 @import "navbar.css";
+@import "media.css";
+@import "text-search.css";

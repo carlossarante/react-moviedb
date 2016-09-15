@@ -27,7 +27,7 @@ var MoviesContainer = React.createClass({
   render: function() {
     var movies = this.state.movies;
     return (
-      <div className="full-container">
+      <div className="l-full-container">
         <NavSearch handleOnChange={this.searchMovie} />
         <MediaList medias={movies} type="movie" />
       </div>

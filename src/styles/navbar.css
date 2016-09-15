@@ -1,17 +1,14 @@
-nav ul li {
+.nav-item {
+  display: inline-block;
   font-weight: bold;
   padding: 10px;
 }
 
-nav ul li a {
+.nav-item-link {
   padding-bottom: 5px;
   text-decoration: none;
 }
 
-nav ul li a:hover {
-  text-decoration: none;
-}
-
-.active-link {
+.nav-item-link-is-active{
   border-bottom: 3px solid #10A5E8;
 }

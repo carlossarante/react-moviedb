@@ -6,12 +6,18 @@ var NavBar = React.createClass({
   render: function() {
     return(
       <nav>
-        <ul className="main-menu">
-          <li>
-            <IndexLink to='/' activeClassName="active-link">Movies</IndexLink>
+        <ul>
+          <li className='nav-item'>
+            <IndexLink to='/' 
+              className="nav-item-link"
+              activeClassName="nav-item-link-is-active">Movies
+            </IndexLink>
           </li>
-          <li>
-            <Link to='/tv-series' activeClassName="active-link">TV Series</Link>
+          <li className="nav-item">
+            <Link to='/tv-series'
+              className="nav-item-link"
+              activeClassName="nav-item-link-is-active">TV Series
+            </Link>
           </li>
         </ul>
       </nav>

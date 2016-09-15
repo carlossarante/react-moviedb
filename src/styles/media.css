@@ -1,13 +1,3 @@
-.searchBar{
-  color: white;
-  font-size: 2em;
-  padding:10px;
-  margin-bottom: 5px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-}
-
 .media-list {
   display: flex;
   flex-flow: row wrap;

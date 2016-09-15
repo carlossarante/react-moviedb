@@ -7,7 +7,7 @@ export default React.createClass({
               type="text"
               ref="textSearch"
             onChange={() => this.props.handleOnChange(this.refs.textSearch.value)}
-            className="searchBar"/>
+            className="text-search"/>
     );
   }
 });

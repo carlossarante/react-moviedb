@@ -70,7 +70,7 @@ var Movie = React.createClass({
 
   render: function() {
     return (
-      <div className="container">
+      <div className="l-container">
         {this.renderBackDrop()}
         {this.renderTrailers()}
         <div className="grid">
