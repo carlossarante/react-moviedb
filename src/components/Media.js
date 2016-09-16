@@ -49,7 +49,7 @@ var Movie = React.createClass({
       var videos = this.props.videos.slice(0, 5);
       var trailers = videos.map(function(trailer) {
         return (
-          <li key={trailer.id} className="trailer">
+          <li key={trailer.id} className="trailers-item">
             <iframe width="160" height="90" src={`https://www.youtube.com/embed/${trailer.key}`} frameBorder="0" allowFullScreen>
           </iframe>
           </li>
@@ -57,9 +57,9 @@ var Movie = React.createClass({
       });
       return (
         <div id="trailers">
-          <div className="fade-left"></div>
-          <div className="fade-right"></div>
-          <ul className="content">
+          <div className="trailers-highlight-left"></div>
+          <div className="trailers-highlight-right"></div>
+          <ul className="trailers-content ">
             {trailers}
           </ul>
         </div>
