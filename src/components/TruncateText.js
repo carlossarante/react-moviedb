@@ -30,10 +30,20 @@ var TruncateText = React.createClass({
     handleToggleText: function() {
       this.setState({cropped: !this.state.cropped})
     },
+    renderToggleText: function() {
+        
+    },
     
     renderText: function() {
       var maxLength = this.props.maxLength;
       var content, toggleText;
+      if(this.state.text.length <= maxLength) {
+        return (
+          <p>
+            {this.state.text}
+          </p>
+        );
+      }
       if(this.state.text.length > maxLength && this.state.cropped) {
         content = this.state.text.substring(0, maxLength);
         toggleText = this.props.showMore;
@@ -44,7 +54,7 @@ var TruncateText = React.createClass({
       return(
         <p>
           {content}
-          <span style={style} onClick={this.handleToggleText}> {toggleText}</span>
+          <span style={style} onClick={this.handleToggleText}>{toggleText}</span>
         </p>  
         );
     },
