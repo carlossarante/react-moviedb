@@ -4,6 +4,10 @@ export function constructPopularTvSeries() {
   return ` //api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`;
 };
 
+export function constructTvSearchByTitle(tvTitle) {
+    return `//api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${tvTitle}`;
+}
+
 export function constructFindTv(id) {
   return `//api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`;
 };
