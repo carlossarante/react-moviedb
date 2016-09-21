@@ -9,8 +9,8 @@ var Review = React.createClass({
 
   render: function() {
     return (
-        <div className="customer-review" role="article">
-          <div className="review-meta">
+        <div className="review__item" role="article">
+          <div className="review__meta">
              <span>by {this.props.author}</span>
           </div>
           <TruncateText text={this.props.content} maxLength={300}/>

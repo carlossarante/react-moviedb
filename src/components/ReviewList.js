@@ -10,7 +10,7 @@ var ReviewsList = React.createClass({
     });
     return (
       <div className="grid">
-        <div id="customer-reviews" className="col-offset-3-10">
+        <div id="reviews" className="col-offset-3-10">
           <h2>User reviews</h2>
           {reviews}
         </div>

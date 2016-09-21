@@ -1,0 +1,12 @@
+.reviews {
+  padding-left: 20px;
+}
+
+.review__item {
+  padding: 20px 21px 24px 0px;
+  border-bottom: 1px solid #211F20;
+}
+
+.review__meta {
+  padding-bottom: 20px;
+}

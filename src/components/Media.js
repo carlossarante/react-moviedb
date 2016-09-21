@@ -59,7 +59,7 @@ var Movie = React.createClass({
         <div id="trailers">
           <div className="trailers-highlight-left"></div>
           <div className="trailers-highlight-right"></div>
-          <ul className="trailers-content ">
+          <ul className="trailers-content">
             {trailers}
           </ul>
         </div>
@@ -69,13 +69,15 @@ var Movie = React.createClass({
   },
 
   render: function() {
+    let title = this.props.title || this.props.name;
+
     return (
       <div className="l-container">
         {this.renderBackDrop()}
         {this.renderTrailers()}
         <div className="grid">
           <div className="col-3-10">
-            <h2 className="movie-title">{this.props.title}</h2>
+            <h2 className="movie-title">{title}</h2>
             <img src={`http://image.tmdb.org/t/p/w185/${this.props.poster_path}`} alt={this.props.title}/>
             <div className="movie-metadata">
               <span className="movie-vote-average">{this.props.vote_average} <span>/ 10</span></span>
